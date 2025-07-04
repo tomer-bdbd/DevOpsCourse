@@ -5,17 +5,30 @@ on:
     branches: ['**']
   pull_request:   # every PR
 
+# jobs:
+#   trufflehog-scan:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+
+#       - name: Run TruffleHog OSS (fail on findings)
+#         uses: trufflesecurity/trufflehog@v3.89.2   # or @latest
+#         with:
+#           # Scan the whole repo at HEAD
+#           path: .
+#           # Pass CLI flags **via `extra_args`**
+#           # extra_args: --fail                  # <-- makes the job fail
+
 jobs:
-  trufflehog-scan:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Run TruffleHog OSS (fail on findings)
-        uses: trufflesecurity/trufflehog@v3.89.2   # or @latest
-        with:
-          # Scan the whole repo at HEAD
-          path: .
-          # Pass CLI flags **via `extra_args`**
-          # extra_args: --fail                  # <-- makes the job fail
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Secret Scanning
+      uses: trufflesecurity/trufflehog@main
+      with:
+        extra_args: --results=verified,unknown
