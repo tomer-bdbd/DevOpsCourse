@@ -18,3 +18,5 @@ jobs:
 
       - name: Run TruffleHog OSS
         uses: trufflesecurity/trufflehog@v3.89.2
+        with:
+          scanArguments: "--exit-code"
