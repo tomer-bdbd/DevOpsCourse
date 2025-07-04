@@ -1,22 +1,21 @@
-name: TruffleHog OSS Scan
+name: Secret Scan
 
 on:
-  push:
-    branches:
-      - main
-      - '**'  # runs on all branches
-  pull_request:
+  push:           # every commit
+    branches: ['**']
+  pull_request:   # every PR
 
 jobs:
-  scan:
-    name: Run TruffleHog
+  trufflehog-scan:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run TruffleHog OSS
-        uses: trufflesecurity/trufflehog@v3.89.2
+      - name: Run TruffleHog OSS (fail on findings)
+        uses: trufflesecurity/trufflehog@v3.89.2   # or @latest
         with:
-          scanArguments: "--exit-code"
+          # Scan the whole repo at HEAD
+          path: .
+          # Pass CLI flags **via `extra_args`**
+          extra_args: --exit-code                  # <-- makes the job fail
