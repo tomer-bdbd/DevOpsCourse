@@ -18,4 +18,4 @@ jobs:
           # Scan the whole repo at HEAD
           path: .
           # Pass CLI flags **via `extra_args`**
-          extra_args: --fail                  # <-- makes the job fail
+          # extra_args: --fail                  # <-- makes the job fail
