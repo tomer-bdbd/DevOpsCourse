@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
     - name: getuser
-      image: tbendr/getuser:1
+      image: tbendr/getuser:2-linux
       ports:
         - containerPort: 8085
