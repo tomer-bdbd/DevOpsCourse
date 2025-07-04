@@ -1,0 +1,20 @@
+name: TruffleHog OSS Scan
+
+on:
+  push:
+    branches:
+      - main
+      - '**'  # runs on all branches
+  pull_request:
+
+jobs:
+  scan:
+    name: Run TruffleHog
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run TruffleHog OSS
+        uses: trufflesecurity/trufflehog@v3.89.2
