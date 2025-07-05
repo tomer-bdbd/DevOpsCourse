@@ -16,4 +16,4 @@ spec:
         - name: getuser
           image: tbendr/getuser:2-linux
           ports:
-            - containerPort: 8085
+            -  containerPort: 5000
