@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: getuser
-          image: tbendr/getuser:2-linux
+          image: tbendr/getuser:3-linux
           ports:
             -  containerPort: 5000
