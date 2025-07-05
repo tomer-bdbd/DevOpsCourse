@@ -30,3 +30,9 @@ A simple web application that displays the current username in a designed web in
    ```bash
    kubectl get service getuser-service
    ```
+
+3. When using minikube or similar, expose the service online using:
+   ```bash
+   kubectl port-forward service/getuser-service 8080:80 --address=0.0.0.0
+   ```
+   Then go to ```http://<external-ip>:8080```
