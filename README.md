@@ -1,4 +1,4 @@
-# DevOps Course - Phase 2: Kubernetes
+# DevOps Course
 
 A simple Flask web application deployed on Kubernetes with autoscaling and monitoring.
 
