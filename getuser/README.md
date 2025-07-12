@@ -22,8 +22,7 @@ A simple web application that displays the current username in a designed web in
 
 1. Deploy using the provided manifests:
    ```bash
-   kubectl apply -f getuser-dep.yaml
-   kubectl apply -f getuser-service.yaml
+   kubectl apply -f ../k8s/
    ```
 
 2. Access the service (depending on your cluster setup):
